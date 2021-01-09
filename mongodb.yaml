@@ -3,7 +3,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mongodb-deployment
+  name: mongodb
   namespace: playground
   labels:
     app: mongodb
@@ -34,4 +34,16 @@ spec:
               name: mongodb-secret
               key: mongodb-admin-password          
 
-
+# Create Service for Deployment
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name:  mongo-service
+spec:
+  selector:
+    app:  mongodb
+  ports:
+  - protocal: TCP
+    port: 27017
+    targetPort: 27017
