@@ -11,11 +11,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mongodb_container
+      app: mongodb-container
   template:
     metadata:
       labels:
-        app: mongodb_container
+        app: mongodb-container
     specs:
       containers:
       - name:  mongodb
