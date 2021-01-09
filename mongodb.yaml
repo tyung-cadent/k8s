@@ -3,7 +3,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mongodb
+  name: mongodb-deployment
   namespace: playground
   labels:
     app: mongodb
@@ -11,11 +11,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mongodb-container
+      app: mongodb
   template:
     metadata:
       labels:
-        app: mongodb-container
+        app: mongodb
     specs:
       containers:
       - name:  mongodb
