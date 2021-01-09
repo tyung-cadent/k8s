@@ -21,7 +21,7 @@ spec:
       - name:  mongodb-container
         image:  mongo
         ports:
-        - containerPort: 27017
+         - containerPort: 27017
         env:
         - name: MONGO_INITDB_ROOT_USERNAME
           valueFrom:
@@ -30,7 +30,7 @@ spec:
               key: mongodb-admin-username
         - name: MONGO_INITDB_ROOT_PASSWORD
           valueFrom:
-            secretKeyRef:
+          secretKeyRef:
               name: mongodb-secret
               key: mongodb-admin-password          
 
