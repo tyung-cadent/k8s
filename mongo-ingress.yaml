@@ -1,13 +1,15 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-mongo-express
+  name: mongo-express-ingress
   namespace: playground
 spec:
   rules:
-  - host: mongoexpress.com
-    http:
+  - http:
       paths:
-      - backend:
-          serviceName: mongo-express-service
-          servicePort: 8081
+      - path: /testpath
+        backend:
+          service:
+            name: mongo-express-service
+            port:
+              number: 8081
