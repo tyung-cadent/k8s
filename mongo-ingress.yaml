@@ -5,7 +5,8 @@ metadata:
   namespace: playground
 spec:
   rules:
-  - http:
+  - host: mongoexpress.com
+    http:
       paths:
       - path: /testpath
         pathType: Prefix
