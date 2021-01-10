@@ -8,6 +8,7 @@ spec:
   - http:
       paths:
       - path: /testpath
+        pathType: Prefix
         backend:
           service:
             name: mongo-express-service
