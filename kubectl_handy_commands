@@ -1,0 +1,6 @@
+#To Change kube config default namespace to playground.
+add/edit namespace=playground in ~/.kube/config
+     contexts:
+       - context:
+          cluster: kubernetes
+          namespace: playground
