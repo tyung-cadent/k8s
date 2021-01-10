@@ -5,7 +5,7 @@ metadata:
   namespace: playground
 spec:
   rules:
-  - host: mongo-express.com
+  - host: mongoexpress.com
     http:
       paths:
       - backend:
