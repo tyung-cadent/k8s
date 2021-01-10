@@ -3,7 +3,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mongodb
+  name: delopyment-mongodb
   namespace: playground
   labels:
     app: mongodb
@@ -11,14 +11,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mongodb-container
+      app: mongodb
   template:
     metadata:
       labels:
-        app: mongodb-container
+        app: mongodb
     spec:
       containers:
-      - name: mongodb-container
+      - name: mongodb
         image: mongo
         ports:
         - containerPort: 27017
@@ -38,12 +38,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name:  mongo-service
+  name: mongodb-service
   namespace: playground
 spec:
   selector:
-    app:  mongodb
+    app: mongodb
   ports:
-  - protocol: TCP
-    port: 27017
-    targetPort: 27017
+    - protocol: TCP
+      port: 27017
+      targetPort: 27017
+
