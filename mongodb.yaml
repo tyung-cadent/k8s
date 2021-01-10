@@ -1,9 +1,9 @@
+# Create Service for Deployment
 ---
-# create deployment for Mongdb pod
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mongodb-deployment
+  name: mongodb
   namespace: playground
   labels:
     app: mongodb
@@ -18,10 +18,10 @@ spec:
         app: mongodb-container
     spec:
       containers:
-      - name:  mongodb-container
-        image:  mongo
+      - name: mongodb-container
+        image: mongo
         ports:
-         - containerPort: 27017
+        - containerPort: 27017
         env:
         - name: MONGO_INITDB_ROOT_USERNAME
           valueFrom:
@@ -30,11 +30,10 @@ spec:
               key: mongodb-admin-username
         - name: MONGO_INITDB_ROOT_PASSWORD
           valueFrom:
-          secretKeyRef:
+            secretKeyRef:
               name: mongodb-secret
-              key: mongodb-admin-password          
+              key: mongodb-admin-password
 
-# Create Service for Deployment
 ---
 apiVersion: v1
 kind: Service
@@ -44,6 +43,6 @@ spec:
   selector:
     app:  mongodb
   ports:
-  - protocal: TCP
+  - protocol: TCP
     port: 27017
     targetPort: 27017
